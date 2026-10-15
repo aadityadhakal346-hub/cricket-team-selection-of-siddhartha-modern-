@@ -1,0 +1,367 @@
+
+
+
+            
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SMS Cricket Team Selection</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef4f0;
+            color: #16352a;
+            padding: 20px;
+        }
+
+        header {
+            background: #102c46;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 14px;
+            margin: auto;
+            max-width: 750px;
+        }
+
+        header h1 {
+            font-size: 27px;
+            margin: 10px 0;
+        }
+
+        header p {
+            color: #bbf7d0;
+            font-size: 14px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .notice {
+            max-width: 750px;
+            margin: 20px auto;
+            background: #dcfce7;
+            border-left: 5px solid #16a34a;
+            padding: 15px;
+            line-height: 1.7;
+            border-radius: 6px;
+        }
+
+        .form-card {
+            max-width: 750px;
+            margin: auto;
+            padding: 28px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px #00000012;
+        }
+
+        .form-card h2 {
+            margin-bottom: 8px;
+            color: #14532d;
+        }
+
+        .intro {
+            color: #64748b;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #86efac;
+            border-color: #16a34a;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        button {
+            grid-column: 1 / -1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #15803d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #166534;
+        }
+
+        #message {
+            display: none;
+            grid-column: 1 / -1;
+            background: #dcfce7;
+            padding: 14px;
+            border-radius: 7px;
+            line-height: 1.6;
+        }
+
+        footer {
+            max-width: 750px;
+            margin: 20px auto 0;
+            text-align: center;
+            background: #102c46;
+            color: white;
+            padding: 22px;
+            border-radius: 12px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #4ade80;
+            font-size: 17px;
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 10px;
+            }
+
+            .form-card {
+                padding: 20px 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full, button, #message {
+                grid-column: 1;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Save your school logo as school-logo.png -->
+        <img src="school-logo.png"
+             alt="Siddhartha Modern School Logo"
+             class="logo">
+
+        <h1>🏏 Cricket Team Selection</h1>
+
+        <p>SIDDHARTHA MODERN SCHOOL</p>
+        <p>PABSON Inter-School Cricket Tournament</p>
+    </header>
+
+    <div class="notice">
+        <strong>📢 Important Notice</strong><br>
+        Students from Class 6 to Class 10 can apply.
+        The final squad will have 15 members.
+        Registration does not guarantee selection.
+    </div>
+
+    <main class="form-card">
+
+        <h2>Student Application Form</h2>
+
+        <p class="intro">
+            Fill in your correct details. 
+        </p>
+
+        <form id="cricketForm" class="form-grid">
+
+            <div class="field">
+                <label for="name">Full Name *</label>
+                <input id="name" name="name" type="text"
+                       placeholder="Enter your full name" required>
+            </div>
+
+            <div class="field">
+                <label for="studentClass">Class *</label>
+                <select id="studentClass" name="class" required>
+                    <option value="">Select class</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="age">Age *</label>
+                <input id="age" name="age" type="number"
+                       min="5" max="25"
+                       placeholder="Enter your age" required>
+            </div>
+
+            <div class="field">
+                <label for="section">Section *</label>
+                <input id="section" name="section" type="text"
+                       placeholder="e.g. A, B, Coding" required>
+            </div>
+
+            <div class="field">
+                <label for="phone">Contact Number</label>
+                <input id="phone" name="phone" type="tel"
+                       placeholder="Student or parent number">
+            </div>
+
+            <div class="field">
+                <label for="position">Playing Position *</label>
+                <select id="position" name="position" required>
+                    <option value="">Select position</option>
+                    <option>Batsman</option>
+                    <option>Bowler</option>
+                    <option>All-rounder</option>
+                    <option>Wicketkeeper</option>
+                </select>
+            </div>
+
+            <div class="field full">
+                
+                
+            </div>
+
+            <button type="submit">
+                SEND APPLICATION TO WHATSAPP 📲
+            </button>
+
+            <div id="message" role="status" aria-live="polite"></div>
+
+        </form>
+    </main>
+
+    <footer>
+        <p>SIDDHARTHA MODERN SCHOOL</p>
+        <p>PABSON Cricket Tournament · 15-Member Squad</p>
+        <br>
+        <p>Website Designed & Developed by</p>
+        <strong>⚡ AADITYA DHAKAL</strong>
+        <p>Student Developer</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("cricketForm");
+        const messageBox = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const studentClass =
+                document.getElementById("studentClass").value;
+
+            const age =
+                document.getElementById("age").value;
+
+            const section =
+                document.getElementById("section").value.trim();
+
+            const phone =
+                document.getElementById("phone").value.trim();
+
+            const position =
+                document.getElementById("position").value;
+
+            const experience =
+                document.getElementById("experience").value.trim();
+
+            const application =
+`🏏 SIDDHARTHA MODERN SCHOOL
+PABSON CRICKET TOURNAMENT
+CRICKET TEAM APPLICATION
+
+👤 Student Name: ${name}
+🎓 Class: ${studentClass}
+🎂 Age: ${age}
+📚 Section: ${section}
+📞 Contact: ${phone || "Not provided"}
+🏏 Playing Position: ${position}
+⭐ Experience: ${experience || "Not provided"}
+
+Interested in selection for the 15-member cricket squad.
+
+
+
+            /*
+              IMPORTANT:
+              Replace this example with the verified WhatsApp
+              number in international format, without + or spaces.
+            */
+            const whatsappNumber = "9779743682801";
+
+            const whatsappURL =
+                "https://wa.me/" + whatsappNumber +
+                "?text=" + encodeURIComponent(application);
+
+            messageBox.style.display = "block";
+            messageBox.textContent =
+                "Opening WhatsApp. Review your application and press " +
+                "Send to submit it. If WhatsApp does not open, check " +
+                "the recipient number and your internet connection.";
+
+            // Navigate directly to WhatsApp instead of opening a popup.
+            window.location.href = whatsappURL;
+        });
+    </script>
+
+</body>
+</html>
